@@ -7,9 +7,18 @@ import { PlansModule } from './plans/plans.module';
 import { SubscriptionsModule } from './subscriptions/subscriptions.module';
 import { PaymentsModule } from './payments/payments.module';
 import { EmailsModule } from './emails/emails.module';
-
+import { ConfigModule } from '@nestjs/config';
 @Module({
-  imports: [AuthModule, UsersModule, PlansModule, SubscriptionsModule, PaymentsModule, EmailsModule],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    AuthModule,
+    UsersModule,
+    PlansModule,
+    SubscriptionsModule,
+    PaymentsModule,
+    EmailsModule,
+  ],
+
   controllers: [AppController],
   providers: [AppService],
 })
