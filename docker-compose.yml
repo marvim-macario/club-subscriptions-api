@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  api:
+    container_name: club-subscriptions-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/club_subscriptions
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/app
+    command: npm run start:dev
+
+  db:
+    image: postgres:15
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: club_subscriptions
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
