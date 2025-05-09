@@ -7,9 +7,14 @@ import { PaymentsModule } from './payments/payments.module';
 import { EmailsModule } from './emails/emails.module';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
+import databaseConfig from '../config/database.config';
+
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({
+      load: [databaseConfig],
+      isGlobal: true,
+    }),
     AuthModule,
     UsersModule,
     PlansModule,
