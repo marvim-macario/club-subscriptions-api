@@ -8,6 +8,7 @@ import { SubscriptionsModule } from './subscriptions/subscriptions.module';
 import { PaymentsModule } from './payments/payments.module';
 import { EmailsModule } from './emails/emails.module';
 import { ConfigModule } from '@nestjs/config';
+import { DatabaseModule } from './database/database.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -17,6 +18,7 @@ import { ConfigModule } from '@nestjs/config';
     SubscriptionsModule,
     PaymentsModule,
     EmailsModule,
+    DatabaseModule,
   ],
 
   controllers: [AppController],

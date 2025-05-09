@@ -17,6 +17,7 @@ const subscriptions_module_1 = require("./subscriptions/subscriptions.module");
 const payments_module_1 = require("./payments/payments.module");
 const emails_module_1 = require("./emails/emails.module");
 const config_1 = require("@nestjs/config");
+const database_module_1 = require("./database/database.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -30,6 +31,7 @@ exports.AppModule = AppModule = __decorate([
             subscriptions_module_1.SubscriptionsModule,
             payments_module_1.PaymentsModule,
             emails_module_1.EmailsModule,
+            database_module_1.DatabaseModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
