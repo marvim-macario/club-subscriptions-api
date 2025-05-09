@@ -21,14 +21,14 @@ export class DtoValidationPipe extends ValidationPipe {
       },
       exceptionFactory: (errors: ValidationError[]) => {
         const res = errors?.flatMap(({ property, constraints }) =>
-          Object.getOwnPropertyNames(constraints)?.map((prop) => {
+          Object.getOwnPropertyNames(constraints ?? {})?.map((prop) => {
             if (Object.hasOwn(DtoValidationErros, prop)) {
               return DtoValidationErros[prop]?.replace('@@##@@', property);
             }
-            return constraints[prop];
+            return constraints?.[prop];
           }),
         );
-        return new BadRequestException(res);
+        return res;
       },
       ...options,
     });
