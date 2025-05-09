@@ -4,7 +4,11 @@
 /node_modules
 .npm
 /.npm
-tsconfig.build.tsbuildinfo
+"dist/**/**",
+"docs/**/**",
+"!**/*.spec.*",
+"!**/*.json"
+!**/*.tsbuildinfo
 
 # Logs
 logs
@@ -24,3 +28,4 @@ Thumbs.db
 # Editor folders
 .vscode/
 .idea/ 
+.tsconfig.build.json

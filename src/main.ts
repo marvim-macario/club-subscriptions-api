@@ -1,6 +1,5 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './modules/app.module';
-import { DtoValidationPipe } from './validations/dto/dto-validation.pipe';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
