@@ -1,5 +1,9 @@
-# Node.js
-node_modules/
+# compiled output
+/dist
+/common
+/node_modules
+.npm
+/.npm
 
 # Logs
 logs
